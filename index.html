@@ -1,0 +1,731 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080808">
+  <meta name="description" content="Vortex Motion Studio creates powerful video experiences for creators and brands. Your Vision. Our Motion.">
+  <title>Vortex Motion Studio — Your Vision. Our Motion.</title>
+
+  <style>
+    :root {
+      --bg: #080808;
+      --panel: #11110f;
+      --gold: #d8b36a;
+      --gold-light: #f2d69a;
+      --white: #f6f3ed;
+      --muted: #aaa69e;
+      --line: rgba(216,179,106,.2);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: Arial, Helvetica, sans-serif;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .container { width: min(1160px, 90%); margin: auto; }
+
+    .announcement {
+      text-align: center;
+      padding: 9px 12px;
+      background: #17130c;
+      color: var(--gold-light);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(8,8,8,.92);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(16px);
+    }
+
+    nav {
+      height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      font-size: 15px;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      display: grid;
+      place-items: center;
+      font-size: 17px;
+      transform: rotate(45deg);
+    }
+
+    .brand-mark span { transform: rotate(-45deg); }
+    .brand-name span { color: var(--gold); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+      color: #c9c4ba;
+      font-size: 12px;
+    }
+
+    .nav-links a { transition: color .25s; }
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-cta, .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 21px;
+      background: var(--gold);
+      color: #100e09;
+      border: 1px solid var(--gold);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      transition: .25s;
+    }
+
+    .nav-cta:hover, .button:hover {
+      background: transparent;
+      color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    .menu-button {
+      display: none;
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid var(--line);
+      padding: 9px 12px;
+      font-size: 20px;
+    }
+
+    .hero {
+      min-height: 690px;
+      display: grid;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 75% 42%, rgba(143,103,42,.19), transparent 34%),
+        radial-gradient(ellipse at 20% 80%, rgba(95,67,30,.12), transparent 35%),
+        linear-gradient(120deg, #080808, #11100d 55%, #080808);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .15;
+      background-image: linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+      background-size: 65px 65px;
+      mask-image: linear-gradient(to bottom, black, transparent 90%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      padding: 100px 0;
+      max-width: 900px;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 8.5vw, 100px);
+      line-height: .99;
+      letter-spacing: -5px;
+      font-weight: 800;
+      max-width: 900px;
+    }
+
+    .hero h1 span {
+      display: block;
+      color: var(--gold);
+      font-family: Georgia, serif;
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: -3px;
+    }
+
+    .hero-copy {
+      color: #b7b1a7;
+      font-size: 16px;
+      line-height: 1.9;
+      max-width: 570px;
+      margin-top: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 35px;
+    }
+
+    .button-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 21px;
+      border: 1px solid #655638;
+      color: var(--gold-light);
+      font-size: 11px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      transition: .25s;
+    }
+
+    .button-outline:hover {
+      background: rgba(216,179,106,.1);
+      border-color: var(--gold);
+    }
+
+    .hero-note {
+      margin-top: 65px;
+      color: #777168;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .section { padding: 105px 0; }
+    .section-dark { background: #0d0d0c; }
+    .section-head { margin-bottom: 48px; }
+    .section-head.center { text-align: center; }
+    .section-head h2 {
+      font-size: clamp(34px, 5vw, 57px);
+      line-height: 1.1;
+      letter-spacing: -2px;
+    }
+    .section-head h2 span { color: var(--gold); }
+    .section-head p {
+      color: var(--muted);
+      margin-top: 15px;
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .about-copy p {
+      color: #b5b0a7;
+      line-height: 2;
+      font-size: 15px;
+      margin-bottom: 18px;
+    }
+
+    .about-panel {
+      min-height: 310px;
+      padding: 38px;
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 80% 20%, rgba(216,179,106,.18), transparent 40%),
+        linear-gradient(145deg, #19160f, #0d0d0c);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .about-panel .big-mark {
+      color: var(--gold);
+      font-family: Georgia, serif;
+      font-size: 90px;
+      line-height: 1;
+      margin-bottom: auto;
+    }
+
+    .about-panel h3 {
+      font-size: 23px;
+      margin-bottom: 8px;
+    }
+
+    .about-panel p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .service-card {
+      padding: 30px 26px;
+      min-height: 225px;
+      background: linear-gradient(145deg, #151512, #0c0c0b);
+      border: 1px solid #29271f;
+      transition: .3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--gold);
+      background: #17140e;
+    }
+
+    .service-card .number {
+      color: var(--gold);
+      font-family: Georgia, serif;
+      font-size: 25px;
+    }
+
+    .service-card h3 {
+      font-size: 18px;
+      margin: 24px 0 10px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .portfolio-card {
+      min-height: 245px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      padding: 25px;
+      border: 1px solid #343027;
+      background: linear-gradient(145deg, #292216, #111 70%);
+      transition: .3s;
+    }
+
+    .portfolio-card:nth-child(2) { background: linear-gradient(145deg, #202a2b, #111 70%); }
+    .portfolio-card:nth-child(3) { background: linear-gradient(145deg, #302020, #111 70%); }
+    .portfolio-card:nth-child(4) { background: linear-gradient(145deg, #25202e, #111 70%); }
+    .portfolio-card:nth-child(5) { background: linear-gradient(145deg, #2c281b, #111 70%); }
+    .portfolio-card:nth-child(6) { background: linear-gradient(145deg, #1b2924, #111 70%); }
+
+    .portfolio-card::before {
+      content: "▶";
+      position: absolute;
+      top: 28px;
+      right: 28px;
+      width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(216,179,106,.55);
+      border-radius: 50%;
+      color: var(--gold);
+      font-size: 13px;
+      transition: .3s;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--gold);
+    }
+
+    .portfolio-card:hover::before {
+      background: var(--gold);
+      color: #080808;
+    }
+
+    .portfolio-card small {
+      color: var(--gold);
+      letter-spacing: 2px;
+      font-size: 9px;
+      text-transform: uppercase;
+    }
+
+    .portfolio-card h3 {
+      font-size: 21px;
+      margin-top: 8px;
+    }
+
+    .portfolio-card p {
+      color: #b8b2a7;
+      font-size: 12px;
+      margin-top: 5px;
+    }
+
+    .workflow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+
+    .workflow-step {
+      border-top: 1px solid var(--gold);
+      padding: 22px 12px 12px 0;
+    }
+
+    .workflow-step strong {
+      display: block;
+      color: var(--gold);
+      font-family: Georgia, serif;
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
+
+    .workflow-step h3 { font-size: 14px; margin-bottom: 8px; }
+    .workflow-step p { color: var(--muted); font-size: 12px; line-height: 1.7; }
+
+    .cta {
+      text-align: center;
+      padding: 95px 20px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background:
+        radial-gradient(ellipse at center, rgba(141,102,42,.2), transparent 60%),
+        #0d0c0a;
+    }
+
+    .cta h2 {
+      font-size: clamp(35px, 6vw, 65px);
+      letter-spacing: -2px;
+      line-height: 1.1;
+    }
+
+    .cta h2 span { color: var(--gold); }
+    .cta p {
+      max-width: 570px;
+      margin: 18px auto 0;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    footer {
+      padding: 32px 0;
+      color: #888176;
+      font-size: 11px;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-inner span { color: var(--gold); }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 850px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 82px;
+        left: 0;
+        right: 0;
+        padding: 25px 5%;
+        background: #0c0c0b;
+        border-bottom: 1px solid var(--line);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 22px;
+      }
+
+      .nav-links.open { display: flex; }
+      .menu-button { display: block; }
+      .nav-cta { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 35px; }
+      .service-grid, .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+      .workflow { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 520px) {
+      nav { height: 72px; }
+      .brand { font-size: 12px; }
+      .brand-mark { width: 32px; height: 32px; }
+      .nav-links { top: 72px; }
+      .hero { min-height: 610px; }
+      .hero-inner { padding: 75px 0; }
+      .hero h1 { letter-spacing: -2px; }
+      .hero h1 span { letter-spacing: -1px; }
+      .hero-copy { font-size: 14px; }
+      .service-grid, .portfolio-grid { grid-template-columns: 1fr; }
+      .portfolio-card { min-height: 205px; }
+      .section { padding: 75px 0; }
+      .workflow { grid-template-columns: 1fr 1fr; }
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="announcement">International Video Editing Agency · Your Vision. Our Motion.</div>
+
+  <header>
+    <div class="container">
+      <nav>
+        <a class="brand" href="#home" aria-label="Vortex Motion Studio home">
+          <span class="brand-mark"><span>V</span></span>
+          <span class="brand-name">VORTEX <span>MOTION</span></span>
+        </a>
+
+        <div class="nav-links" id="navLinks">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#workflow">Our Process</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <a class="nav-cta" href="#contact">Start a Project ↗</a>
+        <button class="menu-button" id="menuButton" aria-label="Open navigation" aria-expanded="false">☰</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-inner reveal">
+          <div class="eyebrow">Creative minds. Powerful stories.</div>
+          <h1>YOUR VISION.<span>OUR MOTION.</span></h1>
+          <p class="hero-copy">
+            We turn raw footage into remarkable visual experiences.
+            From engaging creator content to cinematic brand stories,
+            every frame is crafted with purpose.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#portfolio">Explore Our Work ↗</a>
+            <a class="button-outline" href="#services">Discover Services</a>
+          </div>
+          <div class="hero-note">Creative video editing · Visual storytelling · Motion design</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container about-grid">
+        <div class="about-copy reveal">
+          <div class="eyebrow">The Studio</div>
+          <div class="section-head">
+            <h2>Ideas deserve<br><span>great execution.</span></h2>
+          </div>
+          <p>
+            Vortex Motion Studio is a creative video editing agency
+            focused on helping creators and brands bring their ideas
+            to life through thoughtful visual storytelling.
+          </p>
+          <p>
+            We believe great editing is more than cutting clips.
+            It is about rhythm, emotion, clarity, and creating an
+            experience that keeps people watching.
+          </p>
+          <a class="button-outline" href="#services">What We Do ↗</a>
+        </div>
+
+        <div class="about-panel reveal">
+          <div class="big-mark">V.</div>
+          <h3>Your story, our craft.</h3>
+          <p>Creative thinking. Careful editing. A clear vision in every frame.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="services">
+      <div class="container">
+        <div class="section-head center reveal">
+          <div class="eyebrow">What We Create</div>
+          <h2>Our <span>Services</span></h2>
+          <p>Video editing solutions built around your content and creative goals.</p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card reveal">
+            <div class="number">01</div>
+            <h3>YouTube Editing</h3>
+            <p>Engaging long-form videos with polished pacing, storytelling, and visual flow.</p>
+          </article>
+          <article class="service-card reveal">
+            <div class="number">02</div>
+            <h3>Reels & Shorts</h3>
+            <p>Dynamic short-form edits for creators who want to make every second count.</p>
+          </article>
+          <article class="service-card reveal">
+            <div class="number">03</div>
+            <h3>Podcast Editing</h3>
+            <p>Clean, professional podcast edits with a consistent and engaging presentation.</p>
+          </article>
+          <article class="service-card reveal">
+            <div class="number">04</div>
+            <h3>Cinematic Editing</h3>
+            <p>Atmospheric visuals, thoughtful transitions, and story-driven sequences.</p>
+          </article>
+          <article class="service-card reveal">
+            <div class="number">05</div>
+            <h3>Commercial Editing</h3>
+            <p>Creative promotional videos that communicate a brand's message clearly.</p>
+          </article>
+          <article class="service-card reveal">
+            <div class="number">06</div>
+            <h3>Motion Graphics</h3>
+            <p>Motion elements and animated visuals that add character to your content.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="portfolio">
+      <div class="container">
+        <div class="section-head center reveal">
+          <div class="eyebrow">Selected Work</div>
+          <h2>Made to <span>Make an Impact.</span></h2>
+          <p>Explore our creative categories. Project previews will be added here.</p>
+        </div>
+
+        <div class="portfolio-grid">
+          <a class="portfolio-card reveal" href="#contact">
+            <div><small>Category 01</small><h3>YouTube Editing</h3><p>Long-form video storytelling</p></div>
+          </a>
+          <a class="portfolio-card reveal" href="#contact">
+            <div><small>Category 02</small><h3>Reels & Shorts</h3><p>Fast-paced short-form content</p></div>
+          </a>
+          <a class="portfolio-card reveal" href="#contact">
+            <div><small>Category 03</small><h3>Podcast Editing</h3><p>Conversations, refined</p></div>
+          </a>
+          <a class="portfolio-card reveal" href="#contact">
+            <div><small>Category 04</small><h3>Cinematic Editing</h3><p>Stories with atmosphere</p></div>
+          </a>
+          <a class="portfolio-card reveal" href="#contact">
+            <div><small>Category 05</small><h3>Commercial Editing</h3><p>Visuals for brands</p></div>
+          </a>
+          <a class="portfolio-card reveal" href="#contact">
+            <div><small>Category 06</small><h3>Motion Graphics</h3><p>Design brought to motion</p></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="workflow">
+      <div class="container">
+        <div class="section-head center reveal">
+          <div class="eyebrow">From Brief to Final Cut</div>
+          <h2>A Clear <span>Creative Process.</span></h2>
+          <p>Every project moves through a structured workflow.</p>
+        </div>
+
+        <div class="workflow">
+          <div class="workflow-step reveal"><strong>01</strong><h3>Project Brief</h3><p>We understand your goals and creative direction.</p></div>
+          <div class="workflow-step reveal"><strong>02</strong><h3>Assets</h3><p>You share footage, references, and required files.</p></div>
+          <div class="workflow-step reveal"><strong>03</strong><h3>Editing</h3><p>Our editing process brings your vision together.</p></div>
+          <div class="workflow-step reveal"><strong>04</strong><h3>Review</h3><p>You review the edit and share feedback.</p></div>
+          <div class="workflow-step reveal"><strong>05</strong><h3>Delivery</h3><p>We prepare and deliver the final video.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="contact">
+      <div class="container reveal">
+        <div class="eyebrow">Let's Make Something Meaningful</div>
+        <h2>Ready to Bring Your<br><span>Vision to Life?</span></h2>
+        <p>
+          Tell us about your next video project. Our project inquiry
+          experience is coming soon.
+        </p>
+        <a class="button" href="mailto:">Start a Project ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>© 2026 <span>Vortex Motion Studio</span>. All rights reserved.</div>
+      <div>Your Vision. Our Motion.</div>
+    </div>
+  </footer>
+
+  <script>
+    const menuButton = document.getElementById("menuButton");
+    const navLinks = document.getElementById("navLinks");
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+      menuButton.textContent = isOpen ? "✕" : "☰";
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.textContent = "☰";
+      });
+    });
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach(element => {
+      observer.observe(element);
+    });
+  </script>
+</body>
+</html>
