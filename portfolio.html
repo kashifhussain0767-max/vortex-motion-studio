@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Portfolio | Vortex Motion Studio</title>
+<meta name="description" content="Explore the creative video editing work of Vortex Motion Studio.">
+<style>
+:root {
+  --gold: #d6ad60;
+  --bg: #080808;
+  --panel: #141414;
+  --text: #f5f1e9;
+  --muted: #aaa39a;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 7%;
+  border-bottom: 1px solid #28231b;
+}
+.logo { color: var(--gold); font-weight: 800; letter-spacing: 2px; }
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  margin-left: 24px;
+  font-size: 14px;
+}
+nav a:hover { color: var(--gold); }
+.hero {
+  text-align: center;
+  padding: 105px 20px 75px;
+  background: radial-gradient(ellipse at top, #292014, #080808 68%);
+}
+.eyebrow {
+  color: var(--gold);
+  letter-spacing: 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
+h1 {
+  font-size: clamp(42px, 8vw, 76px);
+  line-height: 1.1;
+  margin: 20px 0;
+}
+h1 span { color: var(--gold); }
+.hero p {
+  color: var(--muted);
+  max-width: 620px;
+  margin: auto;
+}
+main { max-width: 1200px; margin: auto; padding: 65px 7%; }
+.section-heading { text-align: center; margin-bottom: 38px; }
+.section-heading h2 { font-size: 32px; margin-bottom: 10px; }
+.section-heading p { color: var(--muted); }
+.categories {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.category {
+  background: linear-gradient(145deg, #1b1a17, #101010);
+  border: 1px solid #393023;
+  border-radius: 12px;
+  padding: 28px 24px;
+  min-height: 185px;
+  text-decoration: none;
+  color: var(--text);
+  transition: .25s;
+}
+.category:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold);
+}
+.number { color: var(--gold); font-size: 13px; letter-spacing: 2px; }
+.category h3 { margin: 15px 0 8px; font-size: 21px; }
+.category p { color: var(--muted); font-size: 14px; }
+.category .view { display: inline-block; color: var(--gold); margin-top: 15px; font-size: 13px; }
+.work-section { padding-top: 75px; scroll-margin-top: 25px; }
+.work-title {
+  border-bottom: 1px solid #393023;
+  padding-bottom: 15px;
+  margin-bottom: 22px;
+}
+.work-title h2 { color: var(--gold); font-size: 25px; }
+.work-title p { color: var(--muted); font-size: 14px; }
+.placeholder {
+  border: 1px dashed #55452d;
+  border-radius: 12px;
+  padding: 38px 20px;
+  text-align: center;
+  background: #111;
+  color: var(--muted);
+}
+.placeholder strong { display: block; color: var(--gold); margin-bottom: 8px; }
+.cta {
+  text-align: center;
+  background: #17130e;
+  border: 1px solid #40321f;
+  padding: 55px 20px;
+  border-radius: 14px;
+  margin-top: 75px;
+}
+.cta h2 { font-size: 30px; margin-bottom: 12px; }
+.cta p { color: var(--muted); margin-bottom: 24px; }
+.btn {
+  display: inline-block;
+  background: var(--gold);
+  color: #100d08;
+  padding: 13px 25px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+}
+footer {
+  text-align: center;
+  padding: 28px 15px;
+  border-top: 1px solid #28231b;
+  color: var(--muted);
+  font-size: 13px;
+}
+@media(max-width:750px) {
+  header { padding: 18px 5%; flex-wrap: wrap; gap: 15px; }
+  nav { width: 100%; display: flex; flex-wrap: wrap; gap: 15px; }
+  nav a { margin: 0; }
+  .categories { grid-template-columns: 1fr; }
+  main { padding: 50px 6%; }
+  .hero { padding: 75px 18px 55px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">VORTEX MOTION STUDIO</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#services">Services</a>
+    <a href="portfolio.html">Portfolio</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="eyebrow">OUR CREATIVE WORK</div>
+  <h1>THE ART OF<br><span>VISUAL STORYTELLING.</span></h1>
+  <p>Explore our creative editing styles, visual storytelling and motion work. Every project is an opportunity to bring a vision to life.</p>
+</section>
+
+<main>
+  <div class="section-heading">
+    <h2>Explore Our Categories</h2>
+    <p>Discover the different styles of editing at Vortex Motion Studio.</p>
+  </div>
+
+  <div class="categories">
+    <a class="category" href="#youtube">
+      <span class="number">01 / VIDEO</span>
+      <h3>YouTube Editing</h3>
+      <p>Engaging storytelling, creative cuts and professional long-form editing.</p>
+      <span class="view">Explore category →</span>
+    </a>
+    <a class="category" href="#reels">
+      <span class="number">02 / SHORT FORM</span>
+      <h3>Reels & Shorts</h3>
+      <p>Dynamic short videos, captions and attention-grabbing edits.</p>
+      <span class="view">Explore category →</span>
+    </a>
+    <a class="category" href="#podcast">
+      <span class="number">03 / CONVERSATION</span>
+      <h3>Podcast Editing</h3>
+      <p>Clean conversations, speaker cuts and polished podcast visuals.</p>
+      <span class="view">Explore category →</span>
+    </a>
+    <a class="category" href="#cinematic">
+      <span class="number">04 / FILM LOOK</span>
+      <h3>Cinematic Editing</h3>
+      <p>Atmospheric visuals, color grading and cinematic storytelling.</p>
+      <span class="view">Explore category →</span>
+    </a>
+    <a class="category" href="#commercial">
+      <span class="number">05 / BRAND</span>
+      <h3>Commercial Editing</h3>
+      <p>Product showcases and promotional videos for brands.</p>
+      <span class="view">Explore category →</span>
+    </a>
+    <a class="category" href="#motion">
+      <span class="number">06 / ANIMATION</span>
+      <h3>Motion Graphics</h3>
+      <p>Animated typography, visual elements and creative motion design.</p>
+      <span class="view">Explore category →</span>
+    </a>
+  </div>
+
+  <section class="work-section" id="youtube">
+    <div class="work-title"><h2>01. YouTube Editing</h2><p>Long-form storytelling and engaging video experiences.</p></div>
+    <div class="placeholder"><strong>Video samples will appear here</strong>Selected YouTube editing projects will be added in the next step.</div>
+  </section>
+
+  <section class="work-section" id="reels">
+    <div class="work-title"><h2>02. Reels & Shorts</h2><p>Short-form content designed to capture attention.</p></div>
+    <div class="placeholder"><strong>Video samples will appear here</strong>Selected Reels and Shorts projects will be added in the next step.</div>
+  </section>
+
+  <section class="work-section" id="podcast">
+    <div class="work-title"><h2>03. Podcast Editing</h2><p>Polished conversations and podcast visuals.</p></div>
+    <div class="placeholder"><strong>Video samples will appear here</strong>Selected podcast projects will be added in the next step.</div>
+  </section>
+
+  <section class="work-section" id="cinematic">
+    <div class="work-title"><h2>04. Cinematic Editing</h2><p>Visual storytelling through cinematic imagery.</p></div>
+    <div class="placeholder"><strong>Video samples will appear here</strong>Selected cinematic projects will be added in the next step.</div>
+  </section>
+
+  <section class="work-section" id="commercial">
+    <div class="work-title"><h2>05. Commercial Editing</h2><p>Creative promotional content and brand visuals.</p></div>
+    <div class="placeholder"><strong>Video samples will appear here</strong>Selected commercial projects will be added in the next step.</div>
+  </section>
+
+  <section class="work-section" id="motion">
+    <div class="work-title"><h2>06. Motion Graphics</h2><p>Creative animation and motion design.</p></div>
+    <div class="placeholder"><strong>Video samples will appear here</strong>Selected motion graphics projects will be added in the next step.</div>
+  </section>
+
+  <section class="cta">
+    <h2>Have a Project in Mind?</h2>
+    <p>Let's bring your vision to life with creative video editing.</p>
+    <a class="btn" href="index.html#contact">Start a Project</a>
+  </section>
+</main>
+
+<footer>
+  © 2026 Vortex Motion Studio. Your Vision. Our Motion.
+</footer>
+
+</body>
+</html>
